@@ -1,0 +1,27 @@
+<h1>Goals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Goal</th>
+      <th>Target</th>
+      <th>Current</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @goals.each do |goal| %>
+      <tr>
+        <td><%= goal.name %></td>
+        <td><%= goal.unit_of_measure %><%= goal.goal_value %></td>
+        <td><%= goal.unit_of_measure %><%= goal.current_value %></td>
+        <td><%= link_to 'Show', [:my, goal] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Goal', new_my_goal_path %>

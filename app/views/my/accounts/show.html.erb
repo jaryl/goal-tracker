@@ -1,0 +1,18 @@
+<h1>Update your account</h1>
+
+<%= form_with model: @account, scope: :account, url: my_account_path, as: :account, local: true do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :name_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :email_value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

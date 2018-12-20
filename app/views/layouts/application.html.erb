@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GoalsTracker</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://www.gstatic.com/charts/loader.js' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <header>
+      <% if current_user.present? %>
+        <%= link_to 'Logout', session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Login', new_session_path %>
+      <% end %>
+      <hr />
+      <p id='notice'><%= flash[:notice] %></p>
+    </header>
+
+    <%= yield %>
+
+  </body>
+
+</html>

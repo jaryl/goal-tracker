@@ -1,0 +1,35 @@
+<p>
+  <strong>Name:</strong>
+  <%= @goal.name %>
+</p>
+
+<p>
+  <strong>Target:</strong>
+  <%= @goal.unit_of_measure %><%= @goal.goal_value %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @goal.unit_of_measure %><%= @goal.current_value %>
+</p>
+
+<hr/>
+
+<h2>Recent Items</h2>
+
+<table>
+  <% @goal.items.recent.each do |item| %>
+    <tr>
+      <td><%= item.created_at.to_s(:short) %></td>
+      <td><%= @goal.unit_of_measure %><%= item.item_value %></td>
+    </tr>
+  <% end %>
+</table>
+
+<hr/>
+
+<%= line_chart @goal.items.group_by_week(:created_at).sum(:item_value), ytitle: @goal.unit_of_measure, xtitle: 'Time' %>
+
+<%= link_to 'Add Item', new_my_goal_item_path(@goal) %>
+
+<%= link_to 'Back', my_goals_path %>

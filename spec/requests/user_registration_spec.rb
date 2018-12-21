@@ -17,7 +17,7 @@ RSpec.describe 'new user registration', type: :request do
     expect(response).to redirect_to(my_account_path)
     follow_redirect!
 
-    assert_select '#notice', text: 'Successfully registered!'
+    assert_select '#notice', text: 'Successfully asdasd registered!'
 
   end
 

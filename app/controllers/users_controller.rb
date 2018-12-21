@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:current_user_id] = @user.id
-      redirect_to my_account_path, notice: 'Successfully registered!'
+      redirect_to my_account_path, notice: 'Successfully asdasd registered!'
     else
       flash[:notice] = 'Please check your details'
       render :new
